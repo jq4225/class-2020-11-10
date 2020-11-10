@@ -102,7 +102,7 @@ set.seed(10)
 week10_split <- initial_split(week_10, prob = 0.80)
 week10_train <- training(week10_split)
 week10_test  <- testing(week10_split)
-week10_folds <- vfold_cv(week_10, v = 10)
+week10_folds <- vfold_cv(week10_train, v = 10)
 
 stan_wfl_2 <- workflow() %>%
   add_recipe(recipe(reg_chg ~ treatment + poverty_n, data = week10_train)) %>%
